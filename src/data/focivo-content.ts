@@ -94,11 +94,11 @@ export const SHOWCASE_SCREENS: { asset: AssetKey; title: string; caption: string
 ];
 
 export const STATS = [
-  { value: 12, suffix: "h 45m", label: "Total Flow Time", display: "12h 45m" },
-  { value: 18, suffix: "", label: "Sessions", display: "18" },
-  { value: 86, suffix: "%", label: "Completion", display: "86%" },
-  { value: 7, suffix: "", label: "Day Streak", display: "7", emoji: "🔥" },
-  { value: 120, suffix: "", label: "XP", display: "120" },
+  { value: 12, suffix: "h 45m", label: "Total Flow Time", emoji: "" },
+  { value: 18, suffix: "", label: "Sessions", emoji: "" },
+  { value: 86, suffix: "%", label: "Completion", emoji: "" },
+  { value: 7, suffix: "", label: "Day Streak", emoji: "\u{1F525}" },
+  { value: 120, suffix: " XP", label: "Experience", emoji: "" },
 ] as const;
 
 export const ACHIEVEMENTS = [

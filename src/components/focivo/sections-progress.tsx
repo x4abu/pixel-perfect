@@ -26,9 +26,9 @@ export function GamificationSection() {
             <Reveal key={s.label} delay={i * 70}>
               <div className="glass h-full rounded-[1.5rem] p-6 text-center transition-transform duration-500 hover:-translate-y-1">
                 <p className="text-3xl font-extrabold tabular-nums">
-                  {"emoji" in s && s.emoji ? `${s.emoji} ` : ""}
+                  {s.emoji ? `${s.emoji} ` : ""}
                   <Counter to={s.value} />
-                  {s.display.replace(String(s.value), "").replace(s.emoji ?? "", "").trim()}
+                  {s.suffix}
                 </p>
                 <p className="mt-2 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
                   {s.label}
