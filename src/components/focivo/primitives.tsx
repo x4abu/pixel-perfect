@@ -14,7 +14,7 @@ export function Reveal({
 }: {
   children: ReactNode;
   delay?: number;
-  className?: string;
+  className?: string | undefined;
   as?: "div" | "li" | "section" | "header" | "article";
 }) {
   const ref = useRef<HTMLElement | null>(null);
@@ -42,15 +42,16 @@ export function Reveal({
     return () => observer.disconnect();
   }, []);
 
+  const Component = Tag as React.ElementType;
+
   return (
-    // @ts-expect-error -- polymorphic tag with a shared ref type
-    <Tag
-      ref={ref}
+    <Component
+      ref={ref as React.Ref<HTMLElement>}
       className={cn("reveal", visible && "is-visible", className)}
       style={{ ["--reveal-delay" as string]: `${delay}ms` }}
     >
       {children}
-    </Tag>
+    </Component>
   );
 }
 
@@ -153,7 +154,7 @@ export function CtaButton({
 /* Section heading                                                     */
 /* ------------------------------------------------------------------ */
 
-export function Eyebrow({ children, dark }: { children: ReactNode; dark?: boolean }) {
+export function Eyebrow({ children, dark }: { children: ReactNode; dark?: boolean | undefined }) {
   return (
     <span
       className={cn(
@@ -177,9 +178,9 @@ export function SectionHeading({
   eyebrow?: string;
   title: ReactNode;
   sub?: ReactNode;
-  dark?: boolean;
+  dark?: boolean | undefined;
   align?: "center" | "left";
-  className?: string;
+  className?: string | undefined;
 }) {
   return (
     <div
@@ -238,10 +239,10 @@ export function AssetImage({
 }: {
   asset: AssetKey;
   alt: string;
-  ratio?: string;
-  className?: string;
-  dark?: boolean;
-  rounded?: string;
+  ratio?: string | undefined;
+  className?: string | undefined;
+  dark?: boolean | undefined;
+  rounded?: string | undefined;
 }) {
   const src = getAsset(asset);
 
@@ -297,8 +298,8 @@ export function PhoneFrame({
 }: {
   asset: AssetKey;
   alt: string;
-  className?: string;
-  dark?: boolean;
+  className?: string | undefined;
+  dark?: boolean | undefined;
 }) {
   return (
     <div
@@ -318,7 +319,7 @@ export function PhoneFrame({
   );
 }
 
-export function Logo({ className, dark }: { className?: string; dark?: boolean }) {
+export function Logo({ className, dark }: { className?: string | undefined; dark?: boolean }) {
   const src = getAsset("focivo-logo.png");
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
@@ -344,7 +345,7 @@ export function Mascot({
   size = "md",
   float = true,
 }: {
-  className?: string;
+  className?: string | undefined;
   size?: "sm" | "md" | "lg";
   float?: boolean;
 }) {
