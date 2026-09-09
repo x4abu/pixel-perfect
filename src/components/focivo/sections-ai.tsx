@@ -167,7 +167,7 @@ export function ShowcaseSection() {
         }}
       >
         <div
-          className="flex items-center gap-6 px-[calc(50%-6.5rem)] transition-transform duration-700 ease-[var(--ease-calm)] md:gap-10 md:px-[calc(50%-8rem)]"
+          className="flex items-center gap-6 px-[calc(50%-6.5rem)] transition-transform duration-700 ease-[var(--ease-calm)]"
           style={{ transform: `translate3d(calc(${-index} * (13rem + 1.5rem)), 0, 0)` }}
         >
           {SHOWCASE_SCREENS.map((s, i) => (
