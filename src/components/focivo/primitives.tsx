@@ -311,7 +311,7 @@ export function PhoneFrame({
         className,
       )}
     >
-      <div className="relative overflow-hidden rounded-[2.1rem] bg-background">
+      <div className={cn("relative overflow-hidden rounded-[2.1rem]", dark ? "bg-ink-soft" : "bg-background")}>
         <div className="pointer-events-none absolute left-1/2 top-2 z-10 h-1.5 w-16 -translate-x-1/2 rounded-full bg-black/25" />
         <AssetImage asset={asset} alt={alt} rounded="rounded-[2.1rem]" dark={dark} />
       </div>

@@ -39,7 +39,7 @@ export function Navbar() {
         className={cn(
           "shell flex items-center justify-between rounded-full transition-all duration-500",
           scrolled
-            ? "glass !max-w-5xl py-2.5 shadow-[var(--shadow-soft)]"
+            ? "glass !max-w-5xl bg-white/80 py-2.5 shadow-[var(--shadow-soft)]"
             : "border border-transparent py-2.5",
         )}
         aria-label="Primary"
