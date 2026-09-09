@@ -13,9 +13,9 @@ export function Reveal({
   as: Tag = "div",
 }: {
   children: ReactNode;
-  delay?: number;
+  delay?: number | undefined;
   className?: string | undefined;
-  as?: "div" | "li" | "section" | "header" | "article";
+  as?: "div" | "li" | "section" | "header" | "article" | undefined;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -121,9 +121,9 @@ export function CtaButton({
   magnetic = false,
   ...props
 }: React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: keyof typeof buttonVariants;
-  size?: keyof typeof buttonSizes;
-  magnetic?: boolean;
+  variant?: keyof typeof buttonVariants | undefined;
+  size?: keyof typeof buttonSizes | undefined;
+  magnetic?: boolean | undefined;
 }) {
   const ref = useRef<HTMLButtonElement>(null);
 
@@ -175,11 +175,11 @@ export function SectionHeading({
   align = "center",
   className,
 }: {
-  eyebrow?: string;
+  eyebrow?: string | undefined;
   title: ReactNode;
   sub?: ReactNode;
   dark?: boolean | undefined;
-  align?: "center" | "left";
+  align?: "center" | "left" | undefined;
   className?: string | undefined;
 }) {
   return (
@@ -319,7 +319,7 @@ export function PhoneFrame({
   );
 }
 
-export function Logo({ className, dark }: { className?: string | undefined; dark?: boolean }) {
+export function Logo({ className, dark }: { className?: string | undefined; dark?: boolean | undefined }) {
   const src = getAsset("focivo-logo.png");
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
@@ -346,8 +346,8 @@ export function Mascot({
   float = true,
 }: {
   className?: string | undefined;
-  size?: "sm" | "md" | "lg";
-  float?: boolean;
+  size?: "sm" | "md" | "lg" | undefined;
+  float?: boolean | undefined;
 }) {
   const src = getAsset("focivo-mascot.png");
   const dim = { sm: "h-20 w-20", md: "h-32 w-32", lg: "h-48 w-48" }[size];
